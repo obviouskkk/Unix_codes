@@ -14,7 +14,7 @@
 
 int main(int argc, const char* argv[])
 {
-	int fd = open ("test.txt", O_CREAT|O_RDWR);
+	int fd = open ("test.txt", O_APPEND);
 	int w_len = write(fd, "hello world" ,11);
 	printf("%d\n",w_len);
     return 0;
