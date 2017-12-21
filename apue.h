@@ -12,10 +12,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <sys/wait.h>
+
 
 #define MAX_LOG_BUF 1024
 
-void err_sys(const char* fmt, ...)
+void err_exit(const char* fmt, ...)
 {
 	va_list ap;
 	va_start(ap, fmt);
@@ -30,7 +32,6 @@ void err_sys(const char* fmt, ...)
 	va_end(ap);
 	exit(1);
 }
-
 
 void err_ret(const char* fmt, ...)
 {
@@ -49,3 +50,22 @@ void err_ret(const char* fmt, ...)
 	fflush(NULL);
 	va_end(ap);
 }
+
+void pr_exit(int status)
+{
+	if(WIFEXITED(status)){
+		printf("normal termination, exit status = %d\n" , WEXITSTATUS(status));
+	} else if (WIFSIGNALED(status)){
+		printf("abnormal termination,singal number = %d%s\n",WTERMSIG(status),
+#ifdef WCOREDUMP
+			WCOREDUMP(status) ? "(core file generated)" :"");
+#else
+			"");
+#endif
+	} else if (WIFSTOPPED(status)){
+		printf("child stopped, singal number is %d\n" , WSTOPSIG(status));
+	}
+}
+
+
+
