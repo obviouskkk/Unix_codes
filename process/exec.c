@@ -14,7 +14,7 @@
 int main(int argc, const char* argv[])
 {
 	char *env[]={"USER=zzy", "PATH=/tmp", NULL};
-	char *argvl[] = {"argv0", "/home/zzy/Unix_codes/process/hello.sh", "1"};
+	char *argvl[] = {"argv0", "/home/zzy/Unix_codes/process/hello.sh", "1", NULL};
 
 	pid_t pid ;
 	//execlp
