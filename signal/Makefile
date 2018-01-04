@@ -2,12 +2,15 @@ CC=gcc
 
 FLAGS= -ggdb  -Wall
 
-BINS=alarm
+BINS=alarm sleep
 
 all:$(BINS)
 
 alarm:alarm.o
 	$(CC) -o $@ $^ $(FLAGS)
+sleep:sleep.o
+	$(CC) -o $@ $^ $(FLAGS)
+
 
 
 
