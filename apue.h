@@ -7,13 +7,17 @@
 
  ********************************************************************** */
 
+#ifndef __APUE_H__
+#define __APUE_H__
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <sys/wait.h>
-
+#include <unistd.h>
+#include <sys/stat.h>
 
 #define MAX_LOG_BUF 1024
 
@@ -67,5 +71,5 @@ void pr_exit(int status)
 	}
 }
 
-
+#endif  //__APUE_H__
 
