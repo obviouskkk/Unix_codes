@@ -12,7 +12,7 @@
 void proc_mask(const char* str)
 {
 	sigset_t sigset;
-	int      errno_save;
+	int errno_save;
 
 	errno_save = errno;
 	if (sigprocmask(0,NULL, &sigset) < 0)
@@ -31,6 +31,7 @@ void proc_mask(const char* str)
 			printf("	SIGHUP");
 		printf("\n");
 	}
+	errno = errno_save;
 
 }
 
