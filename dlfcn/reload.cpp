@@ -7,36 +7,11 @@
 
  ********************************************************************** */
 
-#include <dlfcn.h> 
-#include <stdio.h>
 
-void * dlib = NULL;
+#include "reload.hpp"
 
-base_t dl_base;
-extern "C"{
-	void handle_reload(){
-		dlib =  dlopen("./libtest.so", RTLD_NOW);
-		if (!dlib) {
-			printf("dlopen error: %s\n", dlerror());
-		}
-		dl_base = (base_t)dlsym(dlib, "ret_class");
-		if (!dl_base)
-			printf("dlopen error: %s\n", dlerror());
-		dl_base()->add(1, 2);
-
-		sleep(50);
-
-		dlib =  dlopen("./libtest.so", RTLD_NOW);
-		if (!dlib) {
-			printf("dlopen error: %s\n", dlerror());
-		}
-		dl_base = (base_t)dlsym(dlib, "ret_class");
-		if (!dl_base)
-			printf("dlopen error: %s\n", dlerror());
-
-		dl_base()->add(1, 2);
-
-		dlclose(dlib);
-		return 0;
-	}
+extern "C" void handle_reload()
+{
+	sess::get_sess()->doall();
+	printf("hello world\n");
 }

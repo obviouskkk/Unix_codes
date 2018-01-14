@@ -8,20 +8,18 @@
  ********************************************************************** */
 
 #include "test.hpp"
+#include <stdio.h>
 
 
-extern "C"
+extern "C" Base * ret_class()
 {
-	Base * ret_class()
-	{
-		Base * p = new Derive();
-		return p;
-	}
+	Base * p = new Derive();
+	return p;
 }
 
 
 int Derive::add(int a, int b)
 {
-	printf("hello %d", 1 +  2);
+	printf("hello %d\n", 1+2  );
 	return 0;
 }
