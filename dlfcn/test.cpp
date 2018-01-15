@@ -20,6 +20,6 @@ extern "C" Base * ret_class()
 
 int Derive::add(int a, int b)
 {
-	printf("hello %d\n", 1+2  );
+	printf("hello %d\n", 100  );
 	return 0;
 }
