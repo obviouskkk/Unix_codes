@@ -4,7 +4,7 @@ FLAGS= -ggdb  -Wall
 LDFLAGS= -ldl 
 LDLIBS=
 
-BINS=alarm sleep sigmask sig_action
+BINS=alarm sleep sigmask sig_action abort system_sig
 
 all:$(BINS)
 

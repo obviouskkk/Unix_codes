@@ -33,6 +33,7 @@ void sig_abort()
 
 /*
  * posix 要求的abort实现
+ * 向进程发送一个SIGABRT信号
  * 允许捕捉SIGABRT信号，但是返回后abort终止进程
  * abort无视进程对此信号的阻塞和忽略
  * 
@@ -69,7 +70,7 @@ void Abort()
 
 int main(int argc, const char* argv[])
 {
-	if(signal(SIGABRT, sig_abort)  < 0)
+	if(signal(SIGABRT, sig_abort) == SIG_ERR)
 		err_ret("signal error");
 	printf("hello ");//验证是否会冲洗流
 	sleep(3);
