@@ -13,7 +13,7 @@ myshell:myshell.c
 
 
 clean:
-	@rm *.o myls myshell 
+	@rm -f *.o myls myshell 
 
 
 

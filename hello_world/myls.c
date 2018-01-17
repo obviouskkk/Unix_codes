@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <dirent.h>
 
-#include "apue.h"
+#include "../apue.h"
 int main(int argc, const char* argv[])
 {
 	DIR * dp;

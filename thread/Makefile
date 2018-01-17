@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS= -Wall -ldl -fpic
 LD_FLAGS= -lpthread
 
-BINS=pthread
+BINS=pthread thread_exit
 
 all:$(BINS)
 
