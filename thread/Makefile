@@ -1,8 +1,8 @@
 CC=gcc
-CFLAGS= -Wall -ldl -fpic
+CFLAGS= -Wall -ldl -fpic -ggdb -DDEBUG
 LD_FLAGS= -lpthread
 
-BINS=pthread thread_exit
+BINS=pthread thread_exit thread_cleanup pthread_mutex
 
 all:$(BINS)
 
